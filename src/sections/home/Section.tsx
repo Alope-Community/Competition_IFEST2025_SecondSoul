@@ -7,7 +7,7 @@ const Section = () => {
       <div className="relative w-full">
         <img
           src="img/hero5.jpg"
-          className="object-cover object-bottom w-full h-[450px] md:h-[600px] lg:h-screen"
+          className="object-cover object-left sm:object-bottom w-full h-[450px] md:h-[600px] lg:h-screen"
           alt=""
         />
 

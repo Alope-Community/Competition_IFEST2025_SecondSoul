@@ -12,7 +12,7 @@ const Content = () => {
           {[
             { name: "Belanja Terlaris", img: "img/satu.jpg" },
             { name: "Belanja Celana", img: "img/hero1.jpg" },
-            { name: "Belanja Atasan & Kaus", img: "img/hero2.jpg" },
+            { name: "Belanja Kaos", img: "img/hero2.jpg" },
             { name: "Belanja Semua", img: "img/hero3.jpg" },
           ].map((item, index) => (
             <div key={index} className="text-left md:px-5">

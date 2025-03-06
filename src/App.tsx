@@ -10,6 +10,8 @@ import ChatbotButton from "./component/ModalChat";
 import Shop from "./pages/Shop";
 import Detail from "./pages/Detail";
 import Profile from "./pages/Profile";
+import SwapSell from "./pages/SwapSell";
+import CheckOutPage from "./pages/CheckOutPage";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/shop-fashion" element={<Shop />} />
           <Route path="/shop-fashion/:id" element={<Detail />} />
+          <Route path="/flip-sell" element={<SwapSell />} />
+          <Route path="/check-out" element={<CheckOutPage />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

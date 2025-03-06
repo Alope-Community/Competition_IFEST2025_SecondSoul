@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   IconShoppingBag,
   IconUser,
@@ -61,9 +61,8 @@ const Navbar = () => {
       {/* Navbar */}
       <div
         id="nav"
-        className={`w-full px-4 lg:px-28 py-3 bg-white md:px-10 flex items-center justify-between fixed top-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-white opacity-90 shadow-md" : "bg-transparent"
-        }`}
+        className={`w-full px-4 lg:px-28 py-3 bg-white md:px-10 flex items-center justify-between fixed top-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white opacity-90 shadow-md" : "bg-transparent"
+          }`}
       >
         {/* Left Side */}
         <div className="flex items-center gap-3">
@@ -90,10 +89,10 @@ const Navbar = () => {
             Shop
           </NavLink>
           <NavLink
-            to={""}
+            to={"/flip-sell"}
             className="relative lg:ml-1  pb-2 text-zinc-950 text-lg after:content-[''] after:bottom-0 after:h-[2px] after:bg-zinc-950 after:absolute after:rounded-full hover:after:w-full after:transition-all after:duration-500 after:left-0"
           >
-            About
+            Flip & Sell
           </NavLink>
         </div>
 
@@ -135,9 +134,8 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 left-0 w-[250px] h-full bg-white shadow-md transform ${
-          isMenuOpen ? "translate-x-0" : "-translate-x-full"
-        } transition-transform duration-300 lg:hidden z-50`}
+        className={`fixed top-0 left-0 w-[250px] h-full bg-white shadow-md transform ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
+          } transition-transform duration-300 lg:hidden z-50`}
       >
         <div className="p-6">
           {/* Header Mobile Menu */}
@@ -175,9 +173,8 @@ const Navbar = () => {
       <div className="m-0 font-sans">
         <div
           ref={sidebarRef}
-          className={`fixed h-full w-[300px] top-0 bg-white shadow-xl transition-all duration-500 z-50 p-6 ${
-            isSidebarOpen ? "right-0" : "right-[-300px]"
-          }`}
+          className={`fixed h-full w-[300px] top-0 bg-white shadow-xl transition-all duration-500 z-50 p-6 ${isSidebarOpen ? "right-0" : "right-[-300px]"
+            }`}
         >
           <div className="mt-10 mb-2">
             <h4 className="text-xl">Account</h4>
@@ -195,72 +192,73 @@ const Navbar = () => {
         )}
       </div>
 
-{/* Sidebar Cart */}
-<div className="m-0 font-sans">
-  <div
-    className={`fixed h-full w-[300px] top-0 bg-white shadow-xl transition-all duration-500 z-50 p-6 flex flex-col ${
-      isCartOpen ? "right-0" : "right-[-300px]"
-    }`}
-  >
-    {/* Header - tetap di atas */}
-    <div className="flex-none">
-      <div className="flex items-center justify-between">
-        <h4 className="text-xl">Cart</h4>
-        <button onClick={toggleCart}>
-          <IconX size={32} />
-        </button>
+      {/* Sidebar Cart */}
+      <div className="m-0 font-sans">
+        <div
+          className={`fixed h-full w-[300px] top-0 bg-white shadow-xl transition-all duration-500 z-50 p-6 flex flex-col ${isCartOpen ? "right-0" : "right-[-300px]"
+            }`}
+        >
+          {/* Header - tetap di atas */}
+          <div className="flex-none">
+            <div className="flex items-center justify-between">
+              <h4 className="text-xl">Cart</h4>
+              <button onClick={toggleCart}>
+                <IconX size={32} />
+              </button>
+            </div>
+          </div>
+
+          {/* Area Item - hanya bagian ini yang discroll */}
+          <div className="flex-1 mt-6 overflow-y-auto">
+            {cart.map((cartItem) => (
+              <Cart
+                key={cartItem.id}
+                {...cartItem}
+                onQuantityChange={handleQuantityChange}
+                onSelectChange={handleSelectChange}
+              />
+            ))}
+          </div>
+
+          {/* Footer Checkout - selalu di bawah */}
+          <div className="flex-none border-t pt-4">
+            {(() => {
+              const totalItems = cart.reduce(
+                (acc, item) => acc + (item.selected ? item.quantity : 0),
+                0
+              );
+              const totalPrice = cart.reduce(
+                (acc, item) =>
+                  acc + (item.selected ? item.price * item.quantity : 0),
+                0
+              );
+              return (
+                <>
+                  <div className="flex justify-between text-lg font-semibold">
+                    <span>Total Items:</span>
+                    <span>{totalItems}</span>
+                  </div>
+                  <div className="flex justify-between text-lg font-semibold">
+                    <span>Total Price:</span>
+                    <span>Rp {totalPrice.toLocaleString()}</span>
+                  </div>
+                </>
+              );
+            })()}
+            <Link to={"/check-out"}>
+              <button className="w-full bg-black text-white py-2 rounded mt-4">
+                Checkout
+              </button>
+            </Link>
+          </div>
+        </div>
+        {isCartOpen && (
+          <div
+            className="fixed inset-0 bg-black/50 z-40"
+            onClick={toggleCart}
+          ></div>
+        )}
       </div>
-    </div>
-
-    {/* Area Item - hanya bagian ini yang discroll */}
-    <div className="flex-1 mt-6 overflow-y-auto">
-      {cart.map((cartItem) => (
-        <Cart
-          key={cartItem.id}
-          {...cartItem}
-          onQuantityChange={handleQuantityChange}
-          onSelectChange={handleSelectChange}
-        />
-      ))}
-    </div>
-
-    {/* Footer Checkout - selalu di bawah */}
-    <div className="flex-none border-t pt-4">
-      {(() => {
-        const totalItems = cart.reduce(
-          (acc, item) => acc + (item.selected ? item.quantity : 0),
-          0
-        );
-        const totalPrice = cart.reduce(
-          (acc, item) =>
-            acc + (item.selected ? item.price * item.quantity : 0),
-          0
-        );
-        return (
-          <>
-            <div className="flex justify-between text-lg font-semibold">
-              <span>Total Items:</span>
-              <span>{totalItems}</span>
-            </div>
-            <div className="flex justify-between text-lg font-semibold">
-              <span>Total Price:</span>
-              <span>Rp {totalPrice.toLocaleString()}</span>
-            </div>
-          </>
-        );
-      })()}
-      <button className="w-full bg-black text-white py-2 rounded mt-4">
-        Checkout
-      </button>
-    </div>
-  </div>
-  {isCartOpen && (
-    <div
-      className="fixed inset-0 bg-black/50 z-40"
-      onClick={toggleCart}
-    ></div>
-  )}
-</div>
 
 
 

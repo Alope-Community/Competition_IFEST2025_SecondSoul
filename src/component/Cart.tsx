@@ -1,5 +1,3 @@
-import React from "react";
-
 const Cart = ({
   id,
   selectedIndex,
@@ -40,7 +38,7 @@ const Cart = ({
         className="mr-4"
       />
       <img
-        src={images[selectedIndex]}
+        src={images[0]}
         alt={name}
         className="w-1/4 h-1/4 object-cover rounded"
       />

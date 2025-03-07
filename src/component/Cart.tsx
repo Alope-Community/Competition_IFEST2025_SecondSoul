@@ -39,7 +39,7 @@ const Cart = ({
       <img
         src={images}
         alt={name}
-        className="w-full object-cover rounded mb-10"
+        className="w-1/4 object-cover rounded mb-10"
       />
       <div className="flex flex-col justify-center pl-4">
         <h2 className="text-sm font-semibold">{name}</h2>

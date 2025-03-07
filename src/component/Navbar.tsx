@@ -214,14 +214,20 @@ const Navbar = () => {
 
           {/* Area Item - hanya bagian ini yang discroll */}
           <div className="flex-1 mt-6 overflow-y-auto">
-            {cart.map((cartItem) => (
-              <Cart
-                key={cartItem.id}
-                {...cartItem}
-                onQuantityChange={handleQuantityChange}
-                onSelectChange={handleSelectChange}
-              />
-            ))}
+            {cart.length === 0 ? (
+              <div className="text-center text-lg text-gray-500">
+                Cart is empty
+              </div>
+            ) : (
+              cart.map((cartItem) => (
+                <Cart
+                  key={cartItem.id}
+                  {...cartItem}
+                  onQuantityChange={handleQuantityChange}
+                  onSelectChange={handleSelectChange}
+                />
+              ))
+            )}
           </div>
 
           {/* Footer Checkout - selalu di bawah */}

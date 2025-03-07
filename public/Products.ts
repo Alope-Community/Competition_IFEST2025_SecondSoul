@@ -1,82 +1,74 @@
 const Products = [{
     id: 1,
-    name: "Cotton T-Shirt v-neck",
-    slug: "cotton-t-shirt-v-neck",
-    description: "easy, fit with a v-neck",
-    images: ["/assets/t-shirtV-neck.jpg", "/assets/t-shirtV-neckWhite.jpg"],
+    name: "Silk Georgette Crepe Classic Collar Shirt",
+    slug: "Silk-Georgette-Crepe-Classic-Collar-Shirt",
+    description: "Simple yet sophisticated. An elegant classic collar shirt in our responsibly dyed silk. With a button front and relaxed fit.",
+    images: "/assets/shirt1.jpg",
     price: 100000,
-    colors: ["bg-black", "bg-white"],
-    category: "T-Shirt"
+    category: "Shirt"
 },
 {
     id: 2,
-    name: "Cotton T-Shirt",
-    slug: "cotton-t-shirt",
-    description: "easy, fit for your day",
-    images: ["/assets/t-shirtBlack.jpg", "/assets/t-shirtWhite.jpg"],
+    name: "Organic Handkerchief Linen Classic Collar Shirt",
+    slug: "Organic Handkerchief Linen Classic Collar Shirt",
+    description: "Buttoned up, but never stuffy. The classic collar shirt—an essential shape with a stepped hem, in crisp organic linen.",
+    images: "assets/shirt2.jpg",
     price: 100000,
-    colors: ["bg-black", "bg-white"],
-    category: "T-Shirt"
+    category: "Shirt"
 },
 {
     id: 3,
-    name: "Cotton Shirt",
-    slug: "cotton-shirt",
-    description: "fit with your formal day",
-    images: ["/assets/shirtBlack.jpg", "/assets/shirtWhite.jpg"],
+    name: "Organic Linen Cotton Long Cardigan",
+    slug: "Organic-Linen-Cotton-Long-Cardigan",
+    description: " The long lines of our cardigan, an effortless layer with an open front and ribbed trim. In a textural blend of organic linen and organic cotton.",
+    images: "/assets/outer1.jpg",
     price: 100000,
-    colors: ["bg-black", "bg-white"],
-    category: "Shirt"
+    category: "Outer"
 },
 {
     id: 4,
-    name: "Rayon Shirt",
-    slug: "rayon-shirt",
-    description: "fit with a casual or semi formal day",
-    images: ["/assets/rayonShirtBlack.jpg", "/assets/rayonShirtWhite.jpg"],
+    name: "Organic Linen High Collar Jacket",
+    slug: "Organic-Linen-High-Collar-Jacket",
+    description: "Relaxed and refined. A high collar jacket with patch pockets, in our signature Organic Linen.",
+    images: "/assets/outer2.jpg",
     price: 100000,
-    colors: ["bg-black", "bg-white"],
-    category: "Shirt"
+    category: "Outer"
 },
 {
     id: 5,
-    name: "Cargo Pants",
-    slug: "cargo-pants",
-    description: "comfortable for your day",
-    images: ["/assets/cargoPants.jpg", "/assets/cargoPants1.jpg", "assets/cargoPants2.jpg"],
+    name: "Organic Linen Lantern Pant",
+    slug: "Organic-Linen-Lantern-Pant",
+    description: "The lantern pant. A shape that feels modern all over again, in our signature Organic Linen.",
+    images: "/assets/pants1.jpg",
     price: 100000,
-    colors: ["bg-black", "bg-yellow-900", "bg-lime-900"],
-    category: "Pants"
+    category: "Pant"
 },
 {
     id: 6,
-    name: "Denim Pants",
-    slug: "denim-pants",
-    description: "fit with your casual day",
-    images: ["/assets/jeans.jpg", "/assets/jeans1.jpg", "/assets/jeans2.jpg"],
+    name: "Garment-Dyed Organic Cotton Denim Wide-Leg Jean",
+    slug: "Garment-Dyed-Organic-Cotton-Denim-Wide-Leg-Jean",
+    description: "A sophisticated take on denim. The wide-leg jean with a fly front and pockets, in organic cotton denim dyed for rich color. Made in a Fair Trade Certified™ factory.",
+    images: "/assets/pants2.jpg",
     price: 100000,
-    colors: ["bg-sky-300", "bg-zinc-400", "bg-stone-950"],
-    category: "Pants"
+    category: "Pant"
 },
 {
     id: 7,
-    name: "Mountain Jacket",
-    slug: "mountain-jacket",
-    description: "fit with your cold day",
-    images: ["/assets/mountainJacket.jpg", "/assets/mountainJacket1.jpg", "/assets/mountainJacket2.jpg"],
+    name: "Humm Recycled Stretch Knit Sneaker",
+    slug: "Humm-Recycled-Stretch-Knit-Sneaker",
+    description: " A sporty pull-on sneaker with sleek styling and a low wedge heel. In a sustainable stretch knit made from recycled plastic bottles.",
+    images: "/assets/shoes1.jpg",
     price: 100000,
-    colors: ["bg-black", "bg-slate-400", "bg-sky-950"],
-    category: "Jacket"
+    category: "Shoe"
 },
 {
     id: 8,
-    name: "Denim Jacket",
-    slug: "denim-jacket",
-    description: "fit with your casual day",
-    images: ["/assets/denimJacket.jpg", "/assets/denimJacket1.jpg", "/assets/denimJacket2.jpg"],
+    name: "Peris Recycled Stretch Knit Wedge Sneaker",
+    slug: "Peris-Recycled-Stretch-Knit-Wedge-Sneaker",
+    description: "A classic sneaker for every day. With a comfortable wedge heel and lace-up styling. In a sustainable stretch knit made from recycled plastic bottles.",
+    images: "/assets/shoes2.jpg",
     price: 100000,
-    colors: ["bg-indigo-200", "bg-sky-950", "bg-stone-900"],
-    category: "Jacket"
+    category: "Shoe"
 }
 ]
 

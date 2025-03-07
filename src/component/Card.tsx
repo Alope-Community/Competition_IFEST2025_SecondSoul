@@ -8,10 +8,14 @@ const Card = ({
   description,
   images,
   price,
-  colors,
   slug,
   onAddToCart,
 }) => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const [hoverIndex, setHoverIndex] = useState(null);
+  const navigate = useNavigate();
+
   const handleAddToCart = () => {
     if (onAddToCart) {
       onAddToCart(id);
@@ -25,7 +29,7 @@ const Card = ({
       <div className="bg-white space-10 rounded-lg shadow-gray-300 shadow-lg overflow-hidden w-full text-left">
         <div className="relative">
           <img
-            src={images[0]}
+            src={images}
             alt={name}
             className="w-full h-[250px] sm:h-[300px]  object-cover"
           />

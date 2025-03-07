@@ -11,7 +11,7 @@ import AuthForm from "./AuthForm";
 import Cart from "./Cart";
 
 const Navbar = () => {
-  const { cart, handleQuantityChange, handleSelectChange } = useCart()
+  const { cart, handleQuantityChange, handleSelectChange } = useCart();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -61,8 +61,9 @@ const Navbar = () => {
       {/* Navbar */}
       <div
         id="nav"
-        className={`w-full px-4 lg:px-28 py-3 bg-white md:px-10 flex items-center justify-between fixed top-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white opacity-90 shadow-md" : "bg-transparent"
-          }`}
+        className={`w-full px-4 lg:px-28 py-3 bg-white md:px-10 flex items-center justify-between fixed top-0 z-50 transition-all duration-300 ${
+          isScrolled ? "bg-white opacity-90 shadow-md" : "bg-transparent"
+        }`}
       >
         {/* Left Side */}
         <div className="flex items-center gap-3">
@@ -134,8 +135,9 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 left-0 w-[250px] h-full bg-white shadow-md transform ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
-          } transition-transform duration-300 lg:hidden z-50`}
+        className={`fixed top-0 left-0 w-[250px] h-full bg-white shadow-md transform ${
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300 lg:hidden z-50`}
       >
         <div className="p-6">
           {/* Header Mobile Menu */}
@@ -173,8 +175,9 @@ const Navbar = () => {
       <div className="m-0 font-sans">
         <div
           ref={sidebarRef}
-          className={`fixed h-full w-[300px] top-0 bg-white shadow-xl transition-all duration-500 z-50 p-6 ${isSidebarOpen ? "right-0" : "right-[-300px]"
-            }`}
+          className={`fixed h-full w-[300px] top-0 bg-white shadow-xl transition-all duration-500 z-50 p-6 ${
+            isSidebarOpen ? "right-0" : "right-[-300px]"
+          }`}
         >
           <div className="mt-10 mb-2">
             <h4 className="text-xl">Account</h4>
@@ -195,8 +198,9 @@ const Navbar = () => {
       {/* Sidebar Cart */}
       <div className="m-0 font-sans">
         <div
-          className={`fixed h-full w-[300px] top-0 bg-white shadow-xl transition-all duration-500 z-50 p-6 flex flex-col ${isCartOpen ? "right-0" : "right-[-300px]"
-            }`}
+          className={`fixed h-full w-[300px] top-0 bg-white shadow-xl transition-all duration-500 z-50 p-6 flex flex-col ${
+            isCartOpen ? "right-0" : "right-[-300px]"
+          }`}
         >
           {/* Header - tetap di atas */}
           <div className="flex-none">
@@ -246,7 +250,7 @@ const Navbar = () => {
               );
             })()}
             <Link to={"/check-out"}>
-              <button className="w-full bg-black text-white py-2 rounded mt-4">
+              <button className="w-full bg-black text-white py-2 rounded mt-4 cursor-pointer">
                 Checkout
               </button>
             </Link>
@@ -259,9 +263,6 @@ const Navbar = () => {
           ></div>
         )}
       </div>
-
-
-
     </>
   );
 };

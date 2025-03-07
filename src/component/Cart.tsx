@@ -1,6 +1,5 @@
 const Cart = ({
   id,
-  selectedIndex,
   images,
   name,
   price,

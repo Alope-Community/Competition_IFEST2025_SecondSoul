@@ -86,7 +86,12 @@ const Detail = () => {
                     <span>⭐⭐⭐⭐⭐</span>
                   </div>
 
-                  <p className="text-gray-500 font-semibold">{item.price}</p>
+                  <p className="text-gray-500 font-semibold">
+                    {item.price.toLocaleString("id-ID", {
+                      style: "currency",
+                      currency: "IDR",
+                    })}
+                  </p>
                 </div>
               </div>
             ))}

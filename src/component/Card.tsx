@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { IconShoppingCart } from "@tabler/icons-react";
+import { useNavigate } from "react-router-dom";
 
 const Card = ({
   id,
@@ -14,12 +15,16 @@ const Card = ({
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [hoverIndex, setHoverIndex] = useState(null);
+  const navigate = useNavigate();
 
   const handleAddToCart = () => {
     if (onAddToCart) {
-      onAddToCart(id, selectedIndex);
-    }
+      onAddToCart(id);
+    }setTimeout(() => {
+      navigate(`/shop-fashion/${id}`); 
+    }, 1500);
   };
+
 
   const handleMouseEnter = () => {
     setIsHovered(true);

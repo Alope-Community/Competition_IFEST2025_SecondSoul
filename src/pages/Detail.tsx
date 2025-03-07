@@ -3,6 +3,12 @@ import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
 
 const Detail = () => {
+  const relatedProduct = [
+    { name: "Produk Serupa", img: "/heroShop1.jpg", price: "$19.99" },
+    { name: "Produk Serupa 2", img: "/card.jpg", price: "$19.99" },
+    { name: "Produk Serupa 3", img: "/card1.jpg", price: "$19.99" },
+  ];
+
   return (
     <>
       <Navbar />
@@ -56,30 +62,7 @@ const Detail = () => {
         <div className="mt-10">
           <h2 className="text-xl font-semibold mb-4">Produk Terkait</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Belanja Terlaris",
-                img: "img/satu.jpg",
-                price: "$19.99",
-              },
-              { name: "Product Familiar", img: "/card.jpg", price: "$19.99" },
-              { name: "Belanja Terlaris", img: "/card1.jpg", price: "$19.99" },
-              {
-                name: "Belanja Terlaris",
-                img: "/heroShop1.jpg",
-                price: "$19.99",
-              },
-              {
-                name: "Belanja Terlaris",
-                img: "/heroShop2.jpg",
-                price: "$19.99",
-              },
-              {
-                name: "Belanja Terlaris",
-                img: "/heroShop3.jpg",
-                price: "$19.99",
-              },
-            ].map((item, index) => (
+            {relatedProduct.map((item, index) => (
               <div
                 key={index}
                 className=" border-gray-200 border shadow-xl  rounded-lg bg-white flex items-center gap-4"
@@ -87,7 +70,7 @@ const Detail = () => {
                 <div className="w-32 h-32 rounded-lg overflow-hidden">
                   <img
                     src={item.img}
-                    alt={item.name}
+                    alt={`Gambar ${item.name}`}
                     className="object-cover object-top w-full h-full"
                   />
                 </div>

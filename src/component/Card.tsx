@@ -8,11 +8,9 @@ const Card = ({
   description,
   images,
   price,
-  colors,
   slug,
   onAddToCart,
 }) => {
-  const [currentImage, setCurrentImage] = useState(images[0]);
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [hoverIndex, setHoverIndex] = useState(null);
@@ -41,7 +39,7 @@ const Card = ({
           onMouseLeave={handleMouseLeave}
         >
           <img
-            src={currentImage}
+            src={images}
             alt={name}
             className="w-full h-[250px] sm:h-[300px] object-cover"
           />

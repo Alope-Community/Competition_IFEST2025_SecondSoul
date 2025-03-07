@@ -5,7 +5,6 @@ const Cart = ({
   selectedIndex,
   images,
   name,
-  colors,
   price,
   quantity,
   selected,
@@ -40,12 +39,12 @@ const Cart = ({
         className="mr-4"
       />
       <img
-        src={images[selectedIndex]}
+        src={images}
         alt={name}
-        className="w-1/4 h-1/4 object-cover rounded"
+        className="w-full object-cover rounded mb-10"
       />
       <div className="flex flex-col justify-center pl-4">
-        <h2 className="text-lg font-semibold">{name}</h2>
+        <h2 className="text-sm font-semibold">{name}</h2>
         <p className="text-sm">Rp {(price * quantity).toLocaleString()}</p>
         <div className="flex gap-2 rounded overflow-hidden">
           <div className="flex bg-gray-200 gap-2 px-2 rounded items-center mt-3">

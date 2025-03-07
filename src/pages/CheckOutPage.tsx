@@ -25,7 +25,7 @@ const CheckOutPage: React.FC = () => {
                             <div className="flex items-center mb-4 sm:mb-0">
                                 {/* Product Image Placeholder */}
                                 <div className="w-16 h-16 bg-gray-200 rounded mr-4 flex items-center justify-center">
-                                    <img src="/public/assets/rayonShirtBlack.jpg" alt="" />
+                                    <img src="/" alt="" />
                                 </div>
                                 {/* Product Details */}
                                 <div>

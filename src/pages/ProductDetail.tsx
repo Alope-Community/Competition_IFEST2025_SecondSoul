@@ -1,69 +1,101 @@
-import React from 'react';
-import { NavLink, useParams } from 'react-router-dom';
-import Products from '../../public/Products';
+import { IconCar, IconReload, IconShield } from "@tabler/icons-react";
+import Navbar from "../component/Navbar";
+import Footer from "../component/Footer";
+import { useParams } from "react-router-dom";
+import Products from "../../public/Products";
 
-const ProductDetail = () => {
+const Detail = () => {
   const { slug } = useParams();
-  const product = Products.find((p) => p.slug === slug);
 
-  if (!product) {
-    return <div className="p-5">Product not found</div>;
-  }
+  const product = Products.find((item) => item.slug === slug);
+
+  const relatedProduct = Products.filter(
+    (item) => item.category === product?.category
+  );
 
   return (
-    <div className="p-5 md:p-10 flex flex-col md:flex-row gap-10 mt-20 min-md:px-20 px-10">
-      <div className="flex-1">
-        <div className="p-5 border rounded-lg shadow-md">
-          <div className="w-full h-70 bg-gray-200 flex items-center justify-center mb-4">
-            <img src={product.images} alt={product.name} className="h-full w-full object-cover rounded" />
+    <>
+      <Navbar />
+      <div className="max-w-6xl mx-auto px-6 py-10 md:py-16  rounded-lg mt-10 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-gray-200 w-full h-96 flex items-center justify-center rounded-lg overflow-hidden">
+            <img
+              src={product?.images[0]}
+              alt="Product Image"
+              className="w-full h-full object-cover"
+            />
           </div>
-          <h2 className="text-2xl font-semibold">{product.name}</h2>
-          <div className="flex items-center gap-1 mb-2">
-            <span className="text-yellow-500">{'⭐️'.repeat(Math.floor(product.rating))}</span>
-            <span className="text-sm text-gray-600">({product.reviews} reviews)</span>
+
+          <div className="md:col-span-2">
+            <h1 className="text-2xl font-bold">{product?.name}</h1>
+            <p className="text-gray-500">(42 reviews)</p>
+            <p className="text-3xl font-semibold my-3">
+              {product?.price.toLocaleString("id-ID", {
+                style: "currency",
+                currency: "IDR",
+              })}
+            </p>
+            <p className="text-gray-600">{product?.description}</p>
+
+            <div className="flex flex-wrap items-center mt-4 space-x-4">
+              <select className="border border-gray-400 px-10 py-2 rounded-md">
+                {[1, 2, 3].map((num) => (
+                  <option key={num}>{num}</option>
+                ))}
+              </select>
+              <button className="bg-black text-white px-8 py-2 rounded-md hover:bg-zinc-900 hover:text-white">
+                Add to Cart
+              </button>
+            </div>
+
+            <div className="mt-6 space-y-2">
+              <p className="flex items-center">
+                <IconCar className="mr-2" /> Pengiriman gratis untuk pesanan di
+                atas $50
+              </p>
+              <p className="flex items-center">
+                <IconReload className="mr-2" /> Kebijakan pengembalian 30 hari
+              </p>
+              <p className="flex items-center">
+                <IconShield className="mr-2" />
+                Garansi 2 tahun
+              </p>
+            </div>
           </div>
-          <p className="text-3xl font-bold mb-4">{product.price}</p>
-          <p className="mb-6">{product.description}</p>
-          <div className="flex items-center gap-4 mb-6">
-            <select className="border p-2 rounded">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-            </select>
-            <button className="bg-custom text-white px-4 py-2 rounded">
-              Add to Cart
-            </button>
-          </div>
-          <div className="flex flex-col gap-2 text-gray-600">
-            <div className="flex items-center gap-2">🚚 Free shipping on orders over $50</div>
-            <div className="flex items-center gap-2">🔄 30-day return policy</div>
-            <div className="flex items-center gap-2">🛡️ 2-year warranty</div>
+        </div>
+
+        <div className="mt-10">
+          <h2 className="text-xl font-semibold mb-4">Produk Terkait</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {relatedProduct.map((item, index) => (
+              <div
+                key={index}
+                className=" border-gray-200 border shadow-xl  rounded-lg bg-white flex items-center gap-4"
+              >
+                <div className="w-32 h-32 rounded-lg overflow-hidden">
+                  <img
+                    src={item.images[0]}
+                    alt={`Gambar ${item.name}`}
+                    className="object-cover object-center w-full h-full"
+                  />
+                </div>
+
+                <div className="flex flex-col">
+                  <h3 className="text-lg font-medium">{item.name}</h3>
+                  <div className="flex text-yellow-500 my-1">
+                    <span>⭐⭐⭐⭐⭐</span>
+                  </div>
+
+                  <p className="text-gray-500 font-semibold">{item.price}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-
-      <div className="w-full md:w-1/3">
-        <h3 className="text-xl font-semibold mb-4">Related Products</h3>
-        {Product.filter((p) => p.category === product.category && p.id !== product.id)
-          .slice(0, 3)
-          .map((relatedProduct) => (
-            <NavLink to={`/app/products/${relatedProduct.slug}`} key={relatedProduct.id} className="flex items-center gap-4 p-4 mb-2 border rounded-lg shadow-sm">
-              <div className="w-16 h-16 bg-gray-200 flex items-center justify-center">
-                <img src={relatedProduct.image} alt={relatedProduct.name} className="h-full w-full object-cover rounded" />
-              </div>
-              <div>
-                <h4 className="font-semibold">{relatedProduct.name}</h4>
-                <div className="flex items-center gap-1 text-sm text-gray-500">
-                  <span className="text-yellow-500">{'⭐️'.repeat(Math.floor(relatedProduct.rating))}</span>
-                  <span className="text-gray-300">({relatedProduct.reviews} reviews)</span>
-                </div>
-                <p className="text-lg font-bold">{relatedProduct.price}</p>
-              </div>
-            </NavLink>
-          ))}
-      </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 
-export default ProductDetail;
+export default Detail;

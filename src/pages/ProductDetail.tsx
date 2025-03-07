@@ -1,7 +1,7 @@
 import { IconCar, IconReload, IconShield } from "@tabler/icons-react";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Products from "../../public/Products";
 
 const Detail = () => {
@@ -68,32 +68,34 @@ const Detail = () => {
           <h2 className="text-xl font-semibold mb-4">Produk Terkait</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {relatedProduct.map((item, index) => (
-              <div
-                key={index}
-                className=" border-gray-200 border shadow-xl  rounded-lg bg-white flex items-center gap-4"
-              >
-                <div className="w-32 h-32 rounded-lg overflow-hidden">
-                  <img
-                    src={item.images}
-                    alt={`Gambar ${item.name}`}
-                    className="object-cover object-center w-full h-full"
-                  />
-                </div>
-
-                <div className="flex flex-col">
-                  <h3 className="text-lg font-medium">{item.name}</h3>
-                  <div className="flex text-yellow-500 my-1">
-                    <span>⭐⭐⭐⭐⭐</span>
+              <Link to={`/shop-fashion/${item.slug}`}>
+                <div
+                  key={index}
+                  className=" border-gray-200 border shadow-xl  rounded-lg bg-white flex items-center gap-4"
+                >
+                  <div className="w-32 h-32 rounded-lg overflow-hidden">
+                    <img
+                      src={item.images}
+                      alt={`Gambar ${item.name}`}
+                      className="object-cover object-center w-full h-full"
+                    />
                   </div>
 
-                  <p className="text-gray-500 font-semibold">
-                    {item.price.toLocaleString("id-ID", {
-                      style: "currency",
-                      currency: "IDR",
-                    })}
-                  </p>
+                  <div className="flex flex-col">
+                    <h3 className="text-lg font-medium">{item.name}</h3>
+                    <div className="flex text-yellow-500 my-1">
+                      <span>⭐⭐⭐⭐⭐</span>
+                    </div>
+
+                    <p className="text-gray-500 font-semibold">
+                      {item.price.toLocaleString("id-ID", {
+                        style: "currency",
+                        currency: "IDR",
+                      })}
+                    </p>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <>
       <div className="grid grid-cols-4 grid-rows-3 gap-0 ">
-        <div className="bg-blue-500">
+        <div className="">
           <img
             src="img/satu.jpg"
             className="h-[160px] object-cover md:h-[300px] min-sm:w-full w-full lg:w-[351px] lg:h-[405px]"

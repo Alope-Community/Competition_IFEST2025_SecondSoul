@@ -20,7 +20,7 @@ const Detail = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-gray-200 w-full h-96 flex items-center justify-center rounded-lg overflow-hidden">
             <img
-              src={product?.images[0]}
+              src={product?.images}
               alt="Product Image"
               className="w-full h-full object-cover"
             />
@@ -74,7 +74,7 @@ const Detail = () => {
               >
                 <div className="w-32 h-32 rounded-lg overflow-hidden">
                   <img
-                    src={item.images[0]}
+                    src={item.images}
                     alt={`Gambar ${item.name}`}
                     className="object-cover object-center w-full h-full"
                   />

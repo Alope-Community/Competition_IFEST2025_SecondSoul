@@ -22,7 +22,9 @@ const Card = ({ id, name, description, images, price, slug, onAddToCart }) => {
         </div>
         <div className="p-3">
           <h2 className="min-md:text-md font-semibold text-gray-800">{name}</h2>
-          <p className="text-sm text-gray-500 mt-1">{description}</p>
+          <p className="text-sm text-gray-500 mt-1">
+            {description.slice(0, 30)}.....
+          </p>
           <p className="min-md:text-md font-bold text-black-600 mt-1">
             {price.toLocaleString("id-ID", {
               style: "currency",

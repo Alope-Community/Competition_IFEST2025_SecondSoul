@@ -35,12 +35,12 @@ const About = () => {
             />
           </div>
           <div className="lg:w-1/2 w-full  px-4 lg:px-0 mb-10 lg:mt-0 text-left md:mt-15">
-            <h1 className="lg:text-4xl md:text-2xl md:mt-10 text-xl sm:mb-6 mb-3 text-white">
+            <h1 className="lg:text-4xl lg:ml-8 md:text-2xl md:mt-10 text-xl sm:mb-6 mb-3 text-white">
               Tukar, Daur Ulang, Pakai Lagi!
             </h1>
             <NavLink
               to={""}
-              className="relative pb-2 text-gray-100 text-lg after:content-[''] after:bottom-0 after:h-[2px] after:bg-white after:absolute after:rounded-full hover:after:w-full after:transition-all after:duration-500 after:left-0"
+              className="relative pb-2 lg:ml-8 text-gray-100 text-lg after:content-[''] after:bottom-0 after:h-[2px] after:bg-white after:absolute after:rounded-full hover:after:w-full after:transition-all after:duration-500 after:left-0"
             >
               Tukar Sekarang
             </NavLink>

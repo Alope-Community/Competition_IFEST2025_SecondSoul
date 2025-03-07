@@ -24,19 +24,19 @@ const Shop = () => {
     }
   };
 
-    // State untuk kategori aktif (default "All")
-    const [activeCategory, setActiveCategory] = useState("All");
+  // State untuk kategori aktif (default "All")
+  const [activeCategory, setActiveCategory] = useState("All");
 
-    // Callback untuk mengubah kategori aktif
-    const handleCategoryChange = (category) => {
-      setActiveCategory(category);
-    };
-    
-    // Filter produk berdasarkan kategori aktif
-    const filteredProducts =
-      activeCategory === "All"
-        ? Products
-        : Products.filter((product) => product.category === activeCategory);
+  // Callback untuk mengubah kategori aktif
+  const handleCategoryChange = (category) => {
+    setActiveCategory(category);
+  };
+
+  // Filter produk berdasarkan kategori aktif
+  const filteredProducts =
+    activeCategory === "All"
+      ? Products
+      : Products.filter((product) => product.category === activeCategory);
 
   return (
     <>
@@ -73,20 +73,20 @@ const Shop = () => {
           className="col-span-2 row-span-1 object-cover"
         />
       </div>
-      <div className="flex justify-center mb-5 px-5 md:px-10 lg:px-20 md:mb-10 mt-20">
+      <div className="flex justify-center mb-5 pl-7 md:px-10 lg:px-20 md:mb-10 mt-20">
         <div className="container">
           <div className="justify-center flex">
-            <ShopCategory 
+            <ShopCategory
               categories={["All", "Shirt", "Pant", "Outer", "Shoe"]}
               onCategoryChange={handleCategoryChange}
-            /> 
-         </div>
+            />
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:ml-7 lg:grid-cols-4 gap-5 mt-6">
-          {filteredProducts.map((product) => (
-              <Card 
+            {filteredProducts.map((product) => (
+              <Card
                 key={product.id}
-                {...product} 
+                {...product}
                 onAddToCart={handleAddToCart}
               />
             ))}

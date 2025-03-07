@@ -4,7 +4,7 @@ import {
   IconBrandInstagram,
   IconBrandTwitter,
 } from "@tabler/icons-react";
-import React from "react";
+
 
 const Footer = () => {
   return (
@@ -77,15 +77,7 @@ const Footer = () => {
                     href="#portfolio"
                     className="inline-block text-base hover:text-slate-100 mb-3"
                   >
-                    Swap
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#clients"
-                    className="inline-block text-base hover:text-slate-100 mb-3"
-                  >
-                    About
+                    Flip & Shell
                   </a>
                 </li>
               </ul>

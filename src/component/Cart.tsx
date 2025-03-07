@@ -37,7 +37,7 @@ const Cart = ({
         className="mr-4"
       />
       <img
-        src={images[selectedIndex]}
+        src={images}
         alt={name}
         className="w-full object-cover rounded mb-10"
       />

@@ -1,19 +1,7 @@
 import { IconSearch, IconShoppingCart } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
 
-
-const Card = ({
-  id,
-  name,
-  description,
-  images,
-  price,
-  slug,
-  onAddToCart,
-}) => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-  const [hoverIndex, setHoverIndex] = useState(null);
+const Card = ({ id, name, description, images, price, slug, onAddToCart }) => {
   const navigate = useNavigate();
 
   const handleAddToCart = () => {
@@ -21,8 +9,6 @@ const Card = ({
       onAddToCart(id);
     }
   };
-
-  const navigate = useNavigate();
 
   return (
     <>

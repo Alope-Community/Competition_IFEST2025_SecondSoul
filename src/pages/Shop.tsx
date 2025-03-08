@@ -73,7 +73,7 @@ const Shop = () => {
           className="col-span-2 row-span-1 object-cover"
         />
       </div>
-      <div className="flex justify-center mb-5 pl-7 md:px-10 lg:px-20 md:mb-10 mt-20">
+      <div className="flex justify-center mb-5 px-5 md:px-10 lg:px-20 md:mb-10 mt-20">
         <div className="container">
           <div className="justify-center flex">
             <ShopCategory

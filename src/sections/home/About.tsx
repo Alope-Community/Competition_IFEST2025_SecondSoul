@@ -28,7 +28,7 @@ const About = () => {
         <div className="w-full flex flex-col px-4 py-5 sm:py-16 sm:flex-row-reverse lg:items-center sm:px-20 gap-10 bg-black">
           <div className="lg:w-1/2 md:w-full md:px-0 w-full flex justify-center">
             <img
-              src="img/satu.jpg"
+              src="img/hero2.jpg"
               alt=""
               className="w-full sm:w-[450px] sm:ml-11 h-auto object-cover"
             />
@@ -49,7 +49,7 @@ const About = () => {
         <div className="w-full flex flex-col px-4 py-5 sm:py-16 sm:flex-row lg:items-center sm:px-20 gap-10 bg-black">
           <div className="lg:w-1/2 md:w-full md:px-0 w-full flex justify-center">
             <img
-              src="img/satu.jpg"
+              src="img/hero3.jpg"
               alt=""
               className="w-full sm:w-[450px] sm:ml-11 h-auto object-cover"
             />

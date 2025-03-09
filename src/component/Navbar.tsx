@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import {
   IconShoppingBag,
   IconUser,
@@ -22,6 +22,13 @@ const Navbar = () => {
 
   let lastScrollY = useRef(0);
   let scrollTimeout = useRef<NodeJS.Timeout | null>(null);
+
+  //handle checkout
+  const navigate = useNavigate();
+  const handleCheckout = () => {
+    const selectedItems = cart.filter((item) => item.selected);
+    navigate('/check-out', { state: { selectedItems } });
+  };
 
   // Handle menu toggle
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
@@ -255,11 +262,15 @@ const Navbar = () => {
                 </>
               );
             })()}
-            <Link to={"/check-out"}>
-              <button className="w-full bg-black text-white py-2 rounded mt-4 cursor-pointer">
-                Checkout
-              </button>
-            </Link>
+            <button
+              className="w-full bg-black text-white py-2 rounded mt-4 cursor-pointer disabled:opacity-50"
+              onClick={handleCheckout}
+              disabled={
+                cart.reduce((acc, item) => acc + (item.selected ? item.quantity : 0), 0) === 0
+              }
+            >
+              Checkout
+            </button>
           </div>
         </div>
         {isCartOpen && (

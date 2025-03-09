@@ -1,9 +1,14 @@
 import { useState } from "react";
 
-const ShopCategories = ({ categories, onCategoryChange }) => {
+interface ShopCategoriesProps {
+  categories: string[];
+  onCategoryChange?: (category: string) => void;
+}
+
+const ShopCategories = ({ categories, onCategoryChange }: ShopCategoriesProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const handleCategoryClick = (index, category) => {
+  const handleCategoryClick = (index: number, category: string) => {
     setActiveIndex(index);
     if (onCategoryChange) {
       onCategoryChange(category);

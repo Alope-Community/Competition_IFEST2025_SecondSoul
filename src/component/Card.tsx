@@ -1,12 +1,21 @@
 import { IconSearch, IconShoppingCart } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
 
-const Card = ({ id, name, description, images, price, slug, onAddToCart }) => {
+interface CardProps {
+  id: number;
+  name: string;
+  description: string;
+  images: string;
+  price: number;
+  slug: string;
+  onAddToCart: (id: number, selectedIndex: number) => void;}
+
+const Card = ({ id, name, description, images, price, slug, onAddToCart }: CardProps) => {
   const navigate = useNavigate();
 
   const handleAddToCart = () => {
     if (onAddToCart) {
-      onAddToCart(id);
+      onAddToCart(id, 0);
     }
   };
 

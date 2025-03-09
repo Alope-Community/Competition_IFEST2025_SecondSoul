@@ -1,3 +1,14 @@
+interface CartProps {
+  id: number;
+  images: string;
+  name: string;
+  price: number;
+  quantity: number;
+  selected: boolean;
+  onQuantityChange?: (id: number, newQuantity: number) => void;
+  onSelectChange?: (id: number, isSelected: boolean) => void;
+}
+
 const Cart = ({
   id,
   images,
@@ -7,7 +18,7 @@ const Cart = ({
   selected,
   onQuantityChange,
   onSelectChange,
-}) => {
+}: CartProps) => {
   const handleIncrease = () => {
     if (onQuantityChange) {
       onQuantityChange(id, quantity + 1);
@@ -20,7 +31,7 @@ const Cart = ({
     }
   };
 
-  const handleSelectChange = (e) => {
+  const handleSelectChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (onSelectChange) {
       onSelectChange(id, e.target.checked);
     }

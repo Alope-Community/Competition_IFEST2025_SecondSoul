@@ -4,13 +4,11 @@ import React, { createContext, useState, useContext, ReactNode } from 'react';
 interface CartItem {
   id: number;
   selectedIndex: number;
-  images: string[];
-  colors: string[];
+  images: string;
   quantity: number;
   selected: boolean;
   name: string;
   price: number;
-
 }
 
 // Definisikan tipe untuk context

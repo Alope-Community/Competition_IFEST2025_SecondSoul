@@ -3,11 +3,40 @@ import {
   IconCreditCard,
   IconWallet,
 } from "@tabler/icons-react";
+import { useLocation, Link } from "react-router-dom";
 import React from "react";
 import Navbar from "../component/Navbar";
 import Footer from "../component/Footer";
+import CardCheckOut from "../component/CardCheckOut";
+
+// CheckOutPage.tsx
+interface CheckOutItem {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
+  images: string;
+  selected: boolean;
+}
+
+interface CheckOutLocationState {
+  selectedItems: CheckOutItem[];
+}
 
 const CheckOutPage: React.FC = () => {
+  
+  const location = useLocation();
+  const state = location.state as CheckOutLocationState;
+  const { selectedItems } = state || { selectedItems: [] };
+  const totalPrice = selectedItems.reduce(
+    (acc: number, item: CheckOutItem) =>
+      acc + (item.selected ? item.price * item.quantity : 0),
+    0
+  );
+  const shipping = 20000;
+  const tax = totalPrice * 0.1;
+  const total = totalPrice + shipping + tax;
+
   return (
     <>
       <Navbar />
@@ -20,29 +49,11 @@ const CheckOutPage: React.FC = () => {
             Your Cart Items
           </h1>
 
-          {/* Cart Items Section */}
-          <div className="bg-white shadow rounded-md p-4 mb-8">
-            {/* Single Cart Item */}
-            <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between">
-              {/* Product Info */}
-              <div className="flex items-center mb-4 sm:mb-0">
-                {/* Product Image Placeholder */}
-                <div className="w-16 h-16 bg-gray-200 rounded mr-4 flex items-center justify-center">
-                  <img src="/" alt="" />
-                </div>
-                {/* Product Details */}
-                <div>
-                  <p className="font-semibold text-gray-800">Product Name</p>
-                  <p className="text-gray-600 text-sm">
-                    Size: M | Color: Black
-                  </p>
-                  <p className="text-gray-600 text-sm">Qty: 1</p>
-                </div>
-              </div>
-              {/* Price */}
-              <div className="text-gray-800 font-semibold">$99.99</div>
-            </div>
-          </div>
+          {
+            selectedItems.map((product) => (
+              <CardCheckOut key={product.id} {...product} />
+            ))
+          }
 
           {/* Main Content: Shipping & Order Summary */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -94,20 +105,42 @@ const CheckOutPage: React.FC = () => {
               </h2>
               <div className="flex justify-between items-center mb-2">
                 <span className="text-gray-600">Subtotal</span>
-                <span className="text-gray-800 font-medium">$99.99</span>
+
+
+                      <span className="text-gray-800 font-medium">        
+                      {totalPrice.toLocaleString("id-ID", {
+                      style: "currency",
+                      currency: "IDR",
+                      })}</span>
+
               </div>
               <div className="flex justify-between items-center mb-2">
                 <span className="text-gray-600">Shipping</span>
-                <span className="text-gray-800 font-medium">$10.00</span>
+                <span className="text-gray-800 font-medium">            
+                      {shipping.toLocaleString("id-ID", {
+                      style: "currency",
+                      currency: "IDR",
+                      })}
+                </span>
               </div>
               <div className="flex justify-between items-center mb-2">
                 <span className="text-gray-600">Tax</span>
-                <span className="text-gray-800 font-medium">$5.00</span>
+                <span className="text-gray-800 font-medium">
+                {tax.toLocaleString("id-ID", {
+                      style: "currency",
+                      currency: "IDR",
+                      })}
+                </span>
               </div>
               <hr className="my-2" />
               <div className="flex justify-between items-center mb-4">
                 <span className="text-gray-800 font-semibold">Total</span>
-                <span className="text-gray-800 font-bold">$114.99</span>
+                <span className="text-gray-800 font-bold">
+                      {total.toLocaleString("id-ID", {
+                      style: "currency",
+                      currency: "IDR",
+                      })}
+                </span>
               </div>
             </div>
           </div>
